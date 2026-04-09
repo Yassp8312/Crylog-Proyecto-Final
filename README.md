@@ -380,7 +380,7 @@ npm run dev
 npm start
 ```
 
-🌐 La aplicación estará disponible en: **http://localhost:3000**
+🌐 La aplicación está disponible en: **https://crylog-proyecto-final.onrender.com/**
 
 ---
 
@@ -565,45 +565,9 @@ npm test -- --verbose
 
 ---
 
-## 🚀 Despliegue
-
-### Render.com (Recomendado)
-
-1. **Crear cuenta** en [Render.com](https://render.com)
-
-2. **Conectar repositorio**
-   - New → Web Service
-   - Conectar repo de GitHub/GitLab
-
-3. **Configurar build**
-   - **Name**: `crylog`
-   - **Environment**: `Node`
-   - **Build Command**: `npm install`
-   - **Start Command**: `npm start`
-   - **Plan**: Free
-
-4. **Variables de Entorno**
-   ```
-   NODE_ENV=production
-   SUPABASE_URL=https://tu-proyecto.supabase.co
-   SUPABASE_SERVICE_ROLE_KEY=tu-service-role-key
-   JWT_SECRET=tu-super-secret-jwt-key-32-chars
-   SESSION_SECRET=tu-session-secret-32-chars
-   APP_NAME=Crylog
-   APP_URL=https://tu-app.onrender.com
-   ```
-
-5. **Deploy** 🎉
-
----
-
 ## 👨‍💻 Autor
 
 **Jorge Cintra Rad**
-
-- 📧 Email: tu-email@example.com
-- 💼 LinkedIn: [linkedin.com/in/tu-perfil](https://linkedin.com/in/tu-perfil)
-- 🐙 GitHub: [@tu-usuario](https://github.com/tu-usuario)
 
 Desarrollado como proyecto final del curso optativo de **Node.js**.
 
@@ -611,7 +575,7 @@ Desarrollado como proyecto final del curso optativo de **Node.js**.
 
 ## 📄 Licencia
 
-Este proyecto está bajo la licencia **MIT** - ver el archivo [LICENSE](LICENSE) para más detalles.
+Este proyecto está bajo la licencia **Creative Common**
 
 ---
 
