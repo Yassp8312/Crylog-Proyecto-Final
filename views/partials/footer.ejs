@@ -1,0 +1,34 @@
+<footer class="footer">
+    <div class="container">
+        <div class="footer__content">
+            <div class="footer__brand">
+                <span class="footer__logo">MONOLITH</span>
+                <p class="footer__tagline">Una experiencia neo-editorial digital</p>
+            </div>
+            
+            <div class="footer__links">
+                <div class="footer__column">
+                    <h4 class="footer__title">Navegación</h4>
+                    <a href="/" class="footer__link">Inicio</a>
+                    <a href="/posts" class="footer__link">Posts</a>
+                </div>
+                
+                <div class="footer__column">
+                    <h4 class="footer__title">Cuenta</h4>
+                    <% if (typeof isAuthenticated !== 'undefined' && isAuthenticated) { %>
+                        <a href="/posts/create" class="footer__link">Crear Post</a>
+                        <a href="/posts/my-posts" class="footer__link">Mis Posts</a>
+                        <a href="/auth/logout" class="footer__link">Cerrar Sesión</a>
+                    <% } else { %>
+                        <a href="/auth/login" class="footer__link">Iniciar Sesión</a>
+                        <a href="/auth/register" class="footer__link">Registrarse</a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer__bottom">
+            <p class="footer__copy">© <%= new Date().getFullYear() %> Crylog Blog. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>

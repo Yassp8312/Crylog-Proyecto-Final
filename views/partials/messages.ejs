@@ -1,0 +1,28 @@
+<% if (typeof messages !== 'undefined' && messages) { %>
+    <% if (messages.success && messages.success.length > 0) { %>
+        <div class="alert alert--success">
+            <div class="container">
+                <span class="alert__message"><%= messages.success %></span>
+                <button class="alert__close" onclick="this.parentElement.parentElement.remove()">×</button>
+            </div>
+        </div>
+    <% } %>
+    
+    <% if (messages.error && messages.error.length > 0) { %>
+        <div class="alert alert--error">
+            <div class="container">
+                <span class="alert__message"><%= messages.error %></span>
+                <button class="alert__close" onclick="this.parentElement.parentElement.remove()">×</button>
+            </div>
+        </div>
+    <% } %>
+    
+    <% if (messages.info && messages.info.length > 0) { %>
+        <div class="alert alert--info">
+            <div class="container">
+                <span class="alert__message"><%= messages.info %></span>
+                <button class="alert__close" onclick="this.parentElement.parentElement.remove()">×</button>
+            </div>
+        </div>
+    <% } %>
+<% } %>

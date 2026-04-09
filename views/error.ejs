@@ -1,0 +1,31 @@
+<section class="error-section">
+    <div class="container">
+        <div class="error-content">
+            <span class="error-code"><%= statusCode || 500 %></span>
+            <h1 class="display-lg error-title">
+                <% if (statusCode === 404) { %>
+                    Página no encontrada
+                <% } else if (statusCode === 403) { %>
+                    Acceso denegado
+                <% } else if (statusCode === 401) { %>
+                    No autorizado
+                <% } else { %>
+                    Error del servidor
+                <% } %>
+            </h1>
+            <p class="error-message"><%= message || 'Ha ocurrido un error inesperado' %></p>
+            
+            <% if (typeof error !== 'undefined' && Object.keys(error).length > 0 && process.env.NODE_ENV === 'development') { %>
+                <details class="error-details">
+                    <summary>Detalles técnicos</summary>
+                    <pre class="error-stack"><%= JSON.stringify(error, null, 2) %></pre>
+                </details>
+            <% } %>
+            
+            <div class="error-actions">
+                <a href="/" class="btn btn--primary">Volver al inicio</a>
+                <a href="/posts" class="btn btn--secondary">Ver posts</a>
+            </div>
+        </div>
+    </div>
+</section>

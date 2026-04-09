@@ -1,0 +1,109 @@
+<section class="post-form-section">
+    <div class="container">
+        <header class="section-header">
+            <h1 class="display-lg">Editar Post</h1>
+            <p class="section-description">Actualiza tu contenido</p>
+        </header>
+        
+        <% if (errors && errors.length > 0) { %>
+            <div class="form-errors">
+                <% errors.forEach(error => { %>
+                    <span class="form-error"><%= error.msg || error %></span>
+                <% }) %>
+            </div>
+        <% } %>
+        
+        <form action="/posts/<%= post.id %>?_method=PUT" method="POST" class="post-form">
+            <div class="form-group">
+                <label for="title" class="form-label">Título *</label>
+                <input 
+                    type="text" 
+                    id="title" 
+                    name="title" 
+                    class="form-input form-input--lg"
+                    value="<%= formData.title || '' %>"
+                    required
+                    maxlength="200"
+                    placeholder="Título de tu post"
+                >
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group form-group--half">
+                    <label for="category" class="form-label">Categoría</label>
+                    <input 
+                        type="text" 
+                        id="category" 
+                        name="category" 
+                        class="form-input"
+                        value="<%= formData.category || '' %>"
+                        maxlength="50"
+                        placeholder="ej. Tecnología, Diseño, Arte"
+                    >
+                </div>
+                
+                <div class="form-group form-group--half">
+                    <label for="tags" class="form-label">Tags (separados por coma)</label>
+                    <input 
+                        type="text" 
+                        id="tags" 
+                        name="tags" 
+                        class="form-input"
+                        value="<%= formData.tags || '' %>"
+                        placeholder="tag1, tag2, tag3"
+                    >
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="featured_image" class="form-label">URL de imagen destacada</label>
+                <input 
+                    type="url" 
+                    id="featured_image" 
+                    name="featured_image" 
+                    class="form-input"
+                    value="<%= formData.featured_image || '' %>"
+                    placeholder="https://ejemplo.com/imagen.jpg"
+                >
+            </div>
+            
+            <div class="form-group">
+                <label for="excerpt" class="form-label">Extracto (resumen corto)</label>
+                <textarea 
+                    id="excerpt" 
+                    name="excerpt" 
+                    class="form-input"
+                    rows="3"
+                    maxlength="300"
+                    placeholder="Breve resumen de tu post"
+                ><%= formData.excerpt || '' %></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="content" class="form-label">Contenido *</label>
+                <textarea 
+                    id="content" 
+                    name="content" 
+                    class="form-input form-input--editor"
+                    rows="15"
+                    required
+                    minlength="10"
+                    placeholder="Escribe tu contenido aquí... (HTML permitido)"
+                ><%= formData.content || '' %></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="status" class="form-label">Estado</label>
+                <select id="status" name="status" class="form-input form-input--select">
+                    <option value="published" <%= formData.status === 'published' ? 'selected' : '' %>>Publicado</option>
+                    <option value="draft" <%= formData.status === 'draft' ? 'selected' : '' %>>Borrador</option>
+                </select>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn--primary">Guardar Cambios</button>
+                <a href="/posts/slug/<%= post.slug %>" class="btn btn--tertiary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</section>
